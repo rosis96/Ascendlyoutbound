@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CASE STUDY: DIGITAL TRANSFORMATION PIPELINE</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html {
+    width: 100%;
+    background: white;
+  }
+
+  body {
+    width: 210mm;
+    margin: 0 auto;
+    background: white;
+  }
+
+  /* Centered wrapper — 160mm content width centered in 210mm page */
+  .page {
+    width: 210mm;
+    min-height: 297mm;
+    background: white;
+    padding: 28px 25mm; /* 25mm left + right = 160mm content */
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+    font-size: 10px;
+    color: #111827;
+    line-height: 1.5;
+  }
+
+  /* HEADER */
+  .header { display:flex; justify-content:space-between; align-items:center; padding-bottom:14px; margin-bottom:22px; border-bottom:1px solid #e5e7eb; }
+  .brand-name { font-size:13px; font-weight:800; letter-spacing:0.12em; color:#7c3aed; text-transform:uppercase; }
+  .brand-tag { font-size:7.5px; color:#9ca3af; text-transform:uppercase; letter-spacing:0.08em; margin-top:2px; }
+
+  /* HERO */
+  .badge { display:inline-block; background:#efe7fc; color:#7c3aed; font-size:7.5px; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; padding:3px 9px; border-radius:4px; margin-bottom:9px; }
+  .hero { margin-bottom:20px; }
+  h1 { font-size:24px; font-weight:800; line-height:1.15; color:#111827; margin-bottom:7px; }
+  .hero-sub { font-size:9px; color:#6b7280; line-height:1.6; margin-bottom:6px; }
+  .hero-meta { font-size:8px; color:#9ca3af; }
+
+  /* STATS */
+  .stats { display:grid; grid-template-columns:repeat(4,1fr); gap:10px; margin-bottom:18px; }
+  .stat { background:#f9fafb; border:1px solid #e5e7eb; border-radius:8px; padding:13px 11px; }
+  .sv { font-size:20px; font-weight:800; line-height:1; margin-bottom:4px; }
+  .sl { font-size:7.5px; font-weight:700; color:#374151; text-transform:uppercase; letter-spacing:0.08em; margin-bottom:2px; }
+  .ss { font-size:7.5px; color:#9ca3af; }
+
+  /* STRATEGY + TARGETING (always 2 columns, equal width) */
+  .two-col { display:grid; grid-template-columns:1fr 1fr; gap:12px; margin-bottom:14px; }
+
+  .strategy { background:#111827; border-radius:10px; padding:16px; color:white; }
+  .strat-title { font-size:10.5px; font-weight:700; color:#7c3aed; margin-bottom:7px; }
+  .strat-body { font-size:8.5px; color:#d1d5db; line-height:1.6; margin-bottom:11px; }
+  .segs { display:grid; grid-template-columns:repeat(2,1fr); gap:7px; }
+  .seg { background:rgba(255,255,255,0.07); border-radius:6px; padding:9px; }
+  .sp { font-size:14px; font-weight:800; margin-bottom:2px; }
+  .st { font-size:7.5px; font-weight:700; color:white; text-transform:uppercase; letter-spacing:0.05em; margin-bottom:3px; }
+  .sd { font-size:7.5px; color:#9ca3af; line-height:1.5; }
+
+  .targeting { background:#f9fafb; border:1px solid #e5e7eb; border-radius:10px; padding:16px; }
+  .tgt-title { font-size:10.5px; font-weight:700; color:#111827; margin-bottom:8px; }
+  .ti { display:flex; align-items:center; gap:6px; margin-bottom:7px; font-size:9px; color:#374151; }
+  .td { width:5px; height:5px; border-radius:50%; flex-shrink:0; }
+  .infra-label { font-size:8px; font-weight:700; color:#374151; text-transform:uppercase; letter-spacing:0.06em; margin-top:10px; padding-top:8px; border-top:1px solid #e5e7eb; margin-bottom:5px; }
+  .ii { font-size:8px; color:#6b7280; margin-bottom:3px; padding-left:8px; }
+
+  /* EMAIL VARIATIONS — full width 2-col grid */
+  .email-grid { display:grid; gap:12px; margin-bottom:14px; }
+  .ebox { border:1px solid #e5e7eb; border-radius:8px; padding:14px; }
+  .el { font-size:7.5px; font-weight:700; text-transform:uppercase; letter-spacing:0.1em; margin-bottom:7px; }
+  .ebody { background:#f9fafb; border-radius:6px; padding:10px; }
+
+  /* QUOTE — full width */
+  .quote-block { padding:14px 18px; background:#f9fafb; border-radius:0 8px 8px 0; margin-bottom:14px; }
+  .qt { font-size:9.5px; font-style:italic; color:#374151; line-height:1.6; margin-bottom:8px; }
+  .qa { font-size:8.5px; font-weight:700; }
+  .qc { font-size:7.5px; color:#9ca3af; }
+
+  /* CTA */
+  .cta { background:#111827; border-radius:10px; padding:20px; text-align:center; margin-top:14px; }
+  .cta h2 { font-size:17px; font-weight:800; color:white; margin-bottom:5px; }
+  .cta-sub { font-size:8.5px; color:#9ca3af; line-height:1.5; margin-bottom:11px; }
+  .btn-fill { display:inline-block; background:#7c3aed; color:white; font-size:8.5px; font-weight:700; padding:7px 18px; border-radius:6px; margin-right:7px; text-decoration:none; }
+  .btn-out { display:inline-block; border:1px solid #4b5563; color:#d1d5db; font-size:8.5px; font-weight:600; padding:7px 18px; border-radius:6px; text-decoration:none; }
+  .guarantees { font-size:7.5px; color:#6b7280; margin-top:9px; }
+  .guarantees span { margin:0 7px; }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <div class="header">
+    <div>
+      <div class="brand-name">ASCENDLY</div>
+      <div class="brand-tag">Lead Gen Experts</div>
+    </div>
+    <div style="background:#a8f5a0;padding:6px 14px;border-radius:6px;display:inline-flex;align-items:center;height:52px;"><img src="data:image/png;base64,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" style="max-height:38px;max-width:160px;width:auto;display:block;" /></div>
+  </div>
+
+  <div class="hero">
+    <div class="badge">CASE STUDY: DIGITAL TRANSFORMATION PIPELINE</div>
+    <h1>Generating enterprise meetings for Future Works.</h1>
+    <p class="hero-sub">A targeted outbound partnership helping Future Works, an AI-native digital transformation agency, reach technical founders and innovation leads in energy, aerospace, finance, and real estate.</p>
+    <p class="hero-meta">2025 - 2026 &nbsp;|&nbsp; future.works</p>
+  </div>
+
+  <div class="stats"><div class="stat"><div class="sv" style="color:#7c3aed">50+</div><div class="sl">QUALIFIED MEETINGS</div><div class="ss">Enterprise and mid-market</div></div><div class="stat"><div class="sv" style="color:#7c3aed">25%</div><div class="sl">CLOSE RATE</div><div class="ss">Technical decision-makers</div></div><div class="stat"><div class="sv" style="color:#7c3aed">$50k+</div><div class="sl">AVG. PROJECT VALUE</div><div class="ss">Digital transformation scope</div></div><div class="stat"><div class="sv" style="color:#7c3aed">5</div><div class="sl">INDUSTRIES</div><div class="ss">Energy, Aerospace, Finance, RE, Cloud</div></div></div>
+
+  <div class="two-col">
+    <div class="strategy">
+      <div class="strat-title">&#9889; The Precision Targeting Strategy</div>
+      <div class="strat-body">Future Works delivers complex digital transformation for technical industries. Generic outreach would not work. We built hyper-specific sequences for each vertical, speaking to exact operational challenges and positioning Future Works as the execution partner that removes AI risk.</div>
+      <div class="segs"><div class="seg"><div class="sp" style="color:#7c3aed">40%</div><div class="st">ENERGY AND AEROSPACE</div><div class="sd">Technical founders and CTOs at companies building systems in the field, not the lab.</div></div><div class="seg"><div class="sp" style="color:#7c3aed">60%</div><div class="st">FINANCE AND REAL ESTATE</div><div class="sd">Portfolio managers and digital officers modernizing legacy systems and operations.</div></div></div>
+    </div>
+    <div class="targeting">
+      <div class="tgt-title">&#128203; The Targeting</div>
+      <div class="ti"><div class="td" style="background:#7c3aed"></div><span>CTOs and Chief Digital Officers</span></div><div class="ti"><div class="td" style="background:#7c3aed"></div><span>PE Portfolio Operators</span></div><div class="ti"><div class="td" style="background:#7c3aed"></div><span>Founders of Technical Industry Startups</span></div>
+      <div class="infra-label">Infrastructure</div>
+      <div class="ii">• 40+ Domains</div><div class="ii">• 160+ Sending Accounts</div><div class="ii">• Full DNS and deliverability stack</div><div class="ii">• Industry-specific messaging rotations</div>
+    </div>
+  </div>
+
+  <div class="quote-block" style="border-left:3px solid #7c3aed">
+          <div class="qt">"Future Works took the time to understand our business and our culture. Their meticulous attention to consistent branding helped us accelerate our brand projection effectively into a very niche market."</div>
+          <div class="qa" style="color:#7c3aed">Client Reference</div>
+          <div class="qc">Future Works Portfolio</div>
+        </div>
+
+  <div class="email-grid" style="grid-template-columns:repeat(2,1fr);"><div class="ebox">
+              <div class="el" style="color:#7c3aed">VARIATION 1 — FINTECH</div>
+              <div class="ebody"><p style="margin:0 0 8px 0;font-size:8.5px;color:#374151;line-height:1.7;">Hey Andy,</p><p style="margin:0 0 8px 0;font-size:8.5px;color:#374151;line-height:1.7;">Loved the Lendistry case study, the way Cliq supported that growth wave is genuinely impressive.</p><p style="margin:0 0 8px 0;font-size:8.5px;color:#374151;line-height:1.7;">We specialize in scaling fintech service platforms by enhancing transaction UX, enabling real-time integrations & contextualizing risk visibility to help them expand throughput while solving challenges like fragmented merchant support, non-cohesive data visibility & reactive compliance measures.</p><p style="margin:0 0 8px 0;font-size:8.5px;color:#374151;line-height:1.7;">And, I have seen how Cliq's support of Lendistry via ACH velocity workflows proves its reliability, which can be scaled through interactive fund-flow journeys, fraud early-warning UX & personalized merchant touchpoints to deepen market trust & raise partner performance metrics.</p><p style="margin:0 0 8px 0;font-size:8.5px;color:#374151;line-height:1.7;">Mind if I share more info?</p><p style="margin:0 0 8px 0;font-size:8.5px;color:#374151;line-height:1.7;">Kind regards, Matt Leta</p><p style="margin:0 0 8px 0;font-size:8.5px;color:#374151;line-height:1.7;">One more thing, your partnership with Lendistry scaled beautifully, is that your most recognized case success?</p></div>
+            </div><div class="ebox">
+              <div class="el" style="color:#7c3aed">VARIATION 2 — CARE OPS</div>
+              <div class="ebody"><p style="margin:0 0 8px 0;font-size:8.5px;color:#374151;line-height:1.7;">Jacob, Family Matters' deeply personal approach to caregiving fosters dignity and compassion in every home they touch.</p><p style="margin:0 0 8px 0;font-size:8.5px;color:#374151;line-height:1.7;">We are a Digital Transformation company and we help teams that manage in-home caregiving at scale in building AI-native operations systems, resulting in stronger staff coordination, clearer family updates, and optimized daily care routines. For family-focused providers like Family Matters, this means higher care satisfaction, fewer gaps in service, and scalable workforce efficiency.</p><p style="margin:0 0 8px 0;font-size:8.5px;color:#374151;line-height:1.7;">Would it make sense to hop on a quick call with you and perhaps your operations manager so I can walk through how this could apply to Family Matters In-Home Care? Even a short conversation will give you a clear picture of what this could look like in your environment.</p><p style="margin:0 0 8px 0;font-size:8.5px;color:#374151;line-height:1.7;">Waiting for you to cc the responsible person on this conversation.</p><p style="margin:0 0 8px 0;font-size:8.5px;color:#374151;line-height:1.7;">Best, Matt</p><p style="margin:0 0 8px 0;font-size:8.5px;color:#374151;line-height:1.7;">One more thing, your Alzheimer's and dementia programs are so thoughtfully structured. Are they your flagship care line?</p></div>
+            </div></div>
+</div>
+</body>
+</html>
