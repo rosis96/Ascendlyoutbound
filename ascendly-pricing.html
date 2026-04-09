@@ -1,0 +1,1097 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ascendly — Pricing</title>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,400&display=swap" rel="stylesheet">
+<style>
+:root {
+  --ink:       #0d0f14;
+  --ink-2:     #3a3f4d;
+  --ink-3:     #6b7280;
+  --border:    #e8eaed;
+  --surface:   #f7f8fa;
+  --white:     #ffffff;
+  --accent:    #1a56db;
+  --accent-2:  #0e3ba8;
+  --accent-lt: #eff4ff;
+  --green:     #059669;
+  --green-lt:  #ecfdf5;
+  --amber:     #d97706;
+  --amber-lt:  #fffbeb;
+  --radius:    12px;
+  --shadow:    0 1px 3px rgba(0,0,0,.06), 0 4px 16px rgba(0,0,0,.06);
+  --shadow-lg: 0 8px 32px rgba(0,0,0,.10), 0 2px 8px rgba(0,0,0,.06);
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'DM Sans', sans-serif;
+  background: var(--white);
+  color: var(--ink);
+  font-size: 15px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ── NAV ─────────────────────────────────────────────────────── */
+nav {
+  position: sticky; top: 0; z-index: 100;
+  background: rgba(255,255,255,.92);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border);
+  padding: 0 40px;
+  display: flex; align-items: center; justify-content: space-between;
+  height: 60px;
+}
+.nav-brand {
+  font-family: 'Sora', sans-serif;
+  font-weight: 800;
+  font-size: 18px;
+  letter-spacing: -.02em;
+  color: var(--accent);
+  text-decoration: none;
+}
+.nav-links { display: flex; gap: 32px; list-style: none; }
+.nav-links a { color: var(--ink-2); text-decoration: none; font-size: 14px; font-weight: 500; transition: color .2s; }
+.nav-links a:hover { color: var(--accent); }
+.nav-cta {
+  background: var(--accent); color: #fff;
+  padding: 8px 20px; border-radius: 8px;
+  font-size: 14px; font-weight: 600;
+  text-decoration: none; transition: background .2s, transform .1s;
+}
+.nav-cta:hover { background: var(--accent-2); transform: translateY(-1px); }
+
+/* ── CONTAINER ───────────────────────────────────────────────── */
+.container { max-width: 1100px; margin: 0 auto; padding: 0 40px; }
+
+/* ── SECTION SPACING ─────────────────────────────────────────── */
+section { padding: 96px 0; }
+section:first-of-type { padding-top: 0; }
+
+/* ── SECTION LABELS ──────────────────────────────────────────── */
+.eyebrow {
+  display: inline-flex; align-items: center; gap: 8px;
+  font-family: 'Sora', sans-serif;
+  font-size: 11px; font-weight: 700;
+  letter-spacing: .12em; text-transform: uppercase;
+  color: var(--accent); background: var(--accent-lt);
+  padding: 5px 12px; border-radius: 100px;
+  margin-bottom: 18px;
+}
+
+/* ── HERO ────────────────────────────────────────────────────── */
+.hero {
+  padding: 100px 0 80px;
+  text-align: center;
+  background: linear-gradient(180deg, #f0f4ff 0%, #ffffff 100%);
+  border-bottom: 1px solid var(--border);
+}
+.hero h1 {
+  font-family: 'Sora', sans-serif;
+  font-size: clamp(36px, 5vw, 58px);
+  font-weight: 800;
+  line-height: 1.1;
+  letter-spacing: -.03em;
+  color: var(--ink);
+  max-width: 780px; margin: 0 auto 20px;
+}
+.hero h1 span { color: var(--accent); }
+.hero-sub {
+  font-size: 18px; color: var(--ink-2);
+  max-width: 560px; margin: 0 auto 14px;
+  line-height: 1.65;
+}
+.hero-note {
+  font-size: 14px; color: var(--ink-3);
+  font-style: italic;
+}
+.hero-badges {
+  display: flex; justify-content: center; gap: 24px; flex-wrap: wrap;
+  margin-top: 36px;
+}
+.hero-badge {
+  display: flex; align-items: center; gap: 6px;
+  font-size: 13px; font-weight: 500; color: var(--ink-2);
+}
+.hero-badge .dot {
+  width: 7px; height: 7px; border-radius: 50%; background: var(--green);
+}
+
+/* ── SERVICES ────────────────────────────────────────────────── */
+.services { background: var(--white); }
+.section-header { text-align: center; margin-bottom: 56px; }
+.section-header h2 {
+  font-family: 'Sora', sans-serif;
+  font-size: clamp(28px, 3.5vw, 40px);
+  font-weight: 800; letter-spacing: -.025em; margin-bottom: 12px;
+}
+.section-header p { font-size: 16px; color: var(--ink-2); max-width: 500px; margin: 0 auto; }
+
+.services-grid {
+  display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px;
+}
+.service-card {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 28px 24px;
+  transition: box-shadow .25s, transform .25s, border-color .25s;
+}
+.service-card:hover {
+  box-shadow: var(--shadow-lg);
+  transform: translateY(-3px);
+  border-color: #c7d9ff;
+}
+.service-icon {
+  width: 44px; height: 44px; border-radius: 10px;
+  background: var(--accent-lt);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 20px; margin-bottom: 16px;
+}
+.service-card h3 {
+  font-family: 'Sora', sans-serif;
+  font-size: 15px; font-weight: 700;
+  margin-bottom: 12px;
+}
+.service-card ul { list-style: none; }
+.service-card ul li {
+  font-size: 13px; color: var(--ink-2);
+  padding: 4px 0;
+  display: flex; align-items: flex-start; gap: 7px;
+}
+.service-card ul li::before {
+  content: '→';
+  color: var(--accent); font-size: 12px;
+  flex-shrink: 0; margin-top: 1px;
+}
+
+/* ── HOW IT WORKS ────────────────────────────────────────────── */
+.how { background: var(--surface); }
+.timeline {
+  position: relative;
+  display: grid; grid-template-columns: repeat(4, 1fr);
+  gap: 0; margin-bottom: 40px;
+}
+.timeline::before {
+  content: '';
+  position: absolute;
+  top: 28px; left: 12.5%; right: 12.5%;
+  height: 2px;
+  background: linear-gradient(90deg, var(--accent) 0%, #93b4ff 100%);
+  z-index: 0;
+}
+.timeline-step {
+  position: relative; z-index: 1;
+  text-align: center; padding: 0 16px;
+}
+.step-node {
+  width: 56px; height: 56px;
+  border-radius: 50%;
+  background: var(--white);
+  border: 2px solid var(--accent);
+  display: flex; align-items: center; justify-content: center;
+  margin: 0 auto 18px;
+  font-family: 'Sora', sans-serif;
+  font-weight: 800; font-size: 18px;
+  color: var(--accent);
+  box-shadow: 0 0 0 6px var(--accent-lt);
+}
+.step-week {
+  display: inline-block;
+  font-size: 11px; font-weight: 600;
+  color: var(--accent); background: var(--accent-lt);
+  padding: 2px 10px; border-radius: 100px;
+  margin-bottom: 8px;
+  letter-spacing: .06em; text-transform: uppercase;
+}
+.timeline-step h3 {
+  font-family: 'Sora', sans-serif;
+  font-size: 14px; font-weight: 700; margin-bottom: 6px;
+}
+.timeline-step p { font-size: 13px; color: var(--ink-2); line-height: 1.55; }
+
+.timeline-note {
+  text-align: center;
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-left: 4px solid var(--accent);
+  border-radius: var(--radius);
+  padding: 16px 24px;
+  font-size: 14px; color: var(--ink-2);
+  max-width: 600px; margin: 0 auto;
+}
+.timeline-note strong { color: var(--ink); }
+
+/* ── PRICING ─────────────────────────────────────────────────── */
+.pricing { background: var(--white); }
+.pricing-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px; align-items: start;
+}
+.pricing-card {
+  background: var(--white);
+  border: 1.5px solid var(--border);
+  border-radius: 16px;
+  padding: 28px 22px;
+  position: relative;
+  transition: box-shadow .25s, transform .25s;
+}
+.pricing-card:hover {
+  box-shadow: var(--shadow-lg);
+  transform: translateY(-4px);
+}
+.pricing-card.featured {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 4px var(--accent-lt), var(--shadow-lg);
+  transform: scale(1.03);
+  z-index: 2;
+}
+.pricing-card.featured:hover { transform: scale(1.03) translateY(-4px); }
+
+.popular-badge {
+  position: absolute; top: -13px; left: 50%; transform: translateX(-50%);
+  background: var(--accent); color: #fff;
+  font-family: 'Sora', sans-serif;
+  font-size: 11px; font-weight: 700;
+  letter-spacing: .08em; text-transform: uppercase;
+  padding: 4px 14px; border-radius: 100px;
+  white-space: nowrap;
+}
+.plan-name {
+  font-family: 'Sora', sans-serif;
+  font-size: 13px; font-weight: 700;
+  letter-spacing: .08em; text-transform: uppercase;
+  color: var(--ink-3); margin-bottom: 8px;
+}
+.plan-price {
+  font-family: 'Sora', sans-serif;
+  font-size: 36px; font-weight: 800;
+  letter-spacing: -.03em; color: var(--ink);
+  margin-bottom: 4px; line-height: 1;
+}
+.plan-price span { font-size: 16px; font-weight: 500; color: var(--ink-3); }
+.plan-tag {
+  font-size: 12px; color: var(--ink-3); margin-bottom: 20px;
+}
+.plan-divider { height: 1px; background: var(--border); margin: 18px 0; }
+.plan-features { list-style: none; }
+.plan-features li {
+  font-size: 13px; color: var(--ink-2);
+  padding: 5px 0;
+  display: flex; align-items: flex-start; gap: 8px;
+}
+.plan-features li .check { color: var(--green); font-size: 13px; flex-shrink: 0; margin-top: 1px; }
+.plan-features li .highlight { font-weight: 600; color: var(--ink); }
+.plan-cta {
+  display: block; width: 100%;
+  text-align: center;
+  margin-top: 22px;
+  padding: 11px 0;
+  border-radius: 9px;
+  font-size: 14px; font-weight: 600;
+  text-decoration: none;
+  transition: background .2s, transform .1s;
+  cursor: pointer;
+}
+.plan-cta.outline {
+  border: 1.5px solid var(--border);
+  color: var(--ink);
+  background: var(--white);
+}
+.plan-cta.outline:hover { border-color: var(--accent); color: var(--accent); }
+.plan-cta.filled {
+  background: var(--accent); color: #fff; border: none;
+}
+.plan-cta.filled:hover { background: var(--accent-2); transform: translateY(-1px); }
+
+/* ── TRUST NOTE ──────────────────────────────────────────────── */
+.trust { background: var(--surface); }
+.trust-grid {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: start;
+}
+.trust-items { display: flex; flex-direction: column; gap: 16px; }
+.trust-item {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 18px 20px;
+  display: flex; gap: 14px; align-items: flex-start;
+}
+.trust-icon {
+  width: 36px; height: 36px; border-radius: 8px;
+  background: var(--accent-lt);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 16px; flex-shrink: 0;
+}
+.trust-item h4 { font-size: 14px; font-weight: 600; margin-bottom: 3px; }
+.trust-item p { font-size: 13px; color: var(--ink-2); line-height: 1.5; }
+
+/* ── DASHBOARD / MIRO STYLE TIMELINE ─────────────────────────── */
+.dashboard-wrap {
+  background: var(--white);
+  border: 1.5px solid var(--border);
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: var(--shadow);
+}
+.dash-header {
+  background: var(--ink);
+  padding: 14px 20px;
+  display: flex; align-items: center; gap: 8px;
+}
+.dash-dot { width: 10px; height: 10px; border-radius: 50%; }
+.dash-title {
+  font-family: 'Sora', sans-serif;
+  font-size: 12px; font-weight: 600; color: #fff;
+  margin-left: 8px; letter-spacing: .04em;
+}
+.dash-body { padding: 20px; }
+
+.gantt { width: 100%; }
+.gantt-row {
+  display: grid;
+  grid-template-columns: 110px 1fr;
+  gap: 10px; align-items: center;
+  margin-bottom: 10px;
+}
+.gantt-label {
+  font-size: 11px; font-weight: 600; color: var(--ink-2);
+  text-align: right; padding-right: 6px;
+}
+.gantt-track {
+  height: 28px; background: var(--surface); border-radius: 6px;
+  position: relative; overflow: hidden;
+}
+.gantt-bar {
+  position: absolute; top: 4px; bottom: 4px;
+  border-radius: 5px;
+  display: flex; align-items: center; padding: 0 8px;
+  font-size: 10px; font-weight: 600; color: #fff;
+  white-space: nowrap; overflow: hidden;
+  transition: width .8s cubic-bezier(.4,0,.2,1);
+}
+.gantt-weeks {
+  display: grid; grid-template-columns: 110px 1fr; gap: 10px;
+  margin-bottom: 6px;
+}
+.gantt-week-labels {
+  display: flex; justify-content: space-between;
+  padding: 0 4px;
+}
+.gantt-week-labels span {
+  font-size: 10px; color: var(--ink-3); font-weight: 500;
+}
+.gantt-meetings-row {
+  margin-top: 14px; padding-top: 14px;
+  border-top: 1px solid var(--border);
+}
+.meetings-label {
+  font-size: 11px; font-weight: 700; color: var(--ink); margin-bottom: 8px;
+}
+.meeting-dots {
+  display: flex; gap: 6px; flex-wrap: wrap; min-height: 28px;
+}
+.meeting-dot {
+  width: 26px; height: 26px; border-radius: 50%;
+  background: var(--accent-lt); border: 1.5px solid var(--accent);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 10px; font-weight: 700; color: var(--accent);
+  transition: all .3s;
+}
+.meeting-dot.active {
+  background: var(--accent); color: #fff; border-color: var(--accent);
+}
+.meeting-dot.guaranteed {
+  background: var(--green-lt); border-color: var(--green); color: var(--green);
+}
+
+/* ── REVENUE CALCULATOR ──────────────────────────────────────── */
+.calculator { background: var(--white); }
+.calc-wrap {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 48px;
+  align-items: start;
+}
+.calc-form { display: flex; flex-direction: column; gap: 22px; }
+.form-group label {
+  display: block;
+  font-size: 13px; font-weight: 600; color: var(--ink);
+  margin-bottom: 8px;
+}
+.form-group label span {
+  font-weight: 400; color: var(--ink-3);
+}
+.input-row { display: flex; align-items: center; gap: 12px; }
+.prefix {
+  font-size: 16px; font-weight: 500; color: var(--ink-3);
+}
+input[type="number"], input[type="range"] {
+  -webkit-appearance: none; appearance: none;
+}
+.form-group input[type="number"] {
+  width: 100%;
+  padding: 10px 14px;
+  border: 1.5px solid var(--border);
+  border-radius: 9px;
+  font-size: 15px; font-family: 'Sora', sans-serif;
+  font-weight: 600; color: var(--ink);
+  outline: none; transition: border-color .2s;
+}
+.form-group input[type="number"]:focus { border-color: var(--accent); }
+.form-group input[type="range"] {
+  width: 100%; height: 4px;
+  background: var(--border); border-radius: 4px; cursor: pointer;
+  outline: none;
+}
+.form-group input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 18px; height: 18px; border-radius: 50%;
+  background: var(--accent);
+  cursor: pointer; border: 2px solid #fff;
+  box-shadow: 0 0 0 2px var(--accent);
+}
+.range-labels {
+  display: flex; justify-content: space-between;
+  font-size: 11px; color: var(--ink-3); margin-top: 4px;
+}
+.range-val {
+  font-family: 'Sora', sans-serif;
+  font-weight: 700; font-size: 15px;
+  color: var(--accent); text-align: center; margin-top: 4px;
+}
+
+/* Results card */
+.calc-results {
+  background: var(--surface);
+  border: 1.5px solid var(--border);
+  border-radius: 16px;
+  overflow: hidden;
+}
+.calc-results-header {
+  background: var(--ink);
+  padding: 18px 24px;
+}
+.calc-results-header h3 {
+  font-family: 'Sora', sans-serif;
+  font-size: 14px; font-weight: 700;
+  color: #fff; letter-spacing: .02em;
+}
+.calc-results-body { padding: 24px; }
+.result-row {
+  display: flex; justify-content: space-between; align-items: baseline;
+  padding: 10px 0; border-bottom: 1px solid var(--border);
+}
+.result-row:last-child { border-bottom: none; }
+.result-label { font-size: 13px; color: var(--ink-2); }
+.result-val {
+  font-family: 'Sora', sans-serif;
+  font-weight: 700; font-size: 16px; color: var(--ink);
+}
+.result-val.big {
+  font-size: 28px; color: var(--green);
+}
+.result-val.accent { color: var(--accent); }
+.calc-note {
+  margin-top: 16px;
+  font-size: 12px; color: var(--ink-3);
+  line-height: 1.55; text-align: center;
+}
+.calc-note strong { color: var(--ink-2); }
+
+/* Plan recommendation */
+.plan-rec {
+  margin-top: 16px;
+  padding: 14px 18px;
+  background: var(--accent-lt);
+  border-radius: 10px;
+  display: flex; gap: 10px; align-items: flex-start;
+}
+.plan-rec-icon { font-size: 18px; flex-shrink: 0; }
+.plan-rec-text { font-size: 13px; color: var(--accent-2); line-height: 1.5; }
+.plan-rec-text strong { font-weight: 700; }
+
+/* ── CTA SECTION ─────────────────────────────────────────────── */
+.cta-section {
+  background: linear-gradient(135deg, #0e1726 0%, #1a3a6e 100%);
+  padding: 96px 0;
+  text-align: center;
+}
+.cta-section h2 {
+  font-family: 'Sora', sans-serif;
+  font-size: clamp(28px, 4vw, 44px);
+  font-weight: 800; letter-spacing: -.03em;
+  color: #fff; margin-bottom: 14px;
+}
+.cta-section p {
+  font-size: 16px; color: rgba(255,255,255,.7);
+  max-width: 480px; margin: 0 auto 36px;
+  line-height: 1.65;
+}
+.cta-btn-lg {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: #fff; color: var(--accent);
+  padding: 14px 36px; border-radius: 10px;
+  font-family: 'Sora', sans-serif;
+  font-size: 15px; font-weight: 700;
+  text-decoration: none; letter-spacing: -.01em;
+  transition: transform .2s, box-shadow .2s;
+  box-shadow: 0 4px 24px rgba(0,0,0,.3);
+}
+.cta-btn-lg:hover { transform: translateY(-2px); box-shadow: 0 8px 32px rgba(0,0,0,.4); }
+.cta-btn-lg span { font-size: 18px; }
+
+/* ── FOOTER ──────────────────────────────────────────────────── */
+footer {
+  background: var(--white);
+  border-top: 1px solid var(--border);
+  padding: 28px 40px;
+  display: flex; justify-content: space-between; align-items: center;
+}
+.footer-brand {
+  font-family: 'Sora', sans-serif;
+  font-weight: 800; font-size: 16px;
+  color: var(--accent);
+}
+.footer-copy { font-size: 13px; color: var(--ink-3); }
+
+/* ── ANIMATIONS ──────────────────────────────────────────────── */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.fade-up { opacity: 0; animation: fadeUp .6s ease forwards; }
+.fade-up-1 { animation-delay: .05s; }
+.fade-up-2 { animation-delay: .15s; }
+.fade-up-3 { animation-delay: .25s; }
+.fade-up-4 { animation-delay: .35s; }
+
+/* ── RESPONSIVE ──────────────────────────────────────────────── */
+@media (max-width: 960px) {
+  .services-grid, .pricing-grid { grid-template-columns: repeat(2, 1fr); }
+  .timeline { grid-template-columns: repeat(2, 1fr); gap: 32px; }
+  .timeline::before { display: none; }
+  .trust-grid, .calc-wrap { grid-template-columns: 1fr; }
+  .pricing-card.featured { transform: none; }
+}
+@media (max-width: 600px) {
+  .container { padding: 0 20px; }
+  nav { padding: 0 20px; }
+  .nav-links { display: none; }
+  .services-grid, .pricing-grid, .timeline { grid-template-columns: 1fr; }
+  section { padding: 64px 0; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a class="nav-brand" href="#">Ascendly</a>
+  <ul class="nav-links">
+    <li><a href="#services">Services</a></li>
+    <li><a href="#how">How It Works</a></li>
+    <li><a href="#pricing">Pricing</a></li>
+    <li><a href="#calculator">ROI Calculator</a></li>
+  </ul>
+  <a class="nav-cta" href="#cta">Book a Strategy Call</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="container">
+    <div class="eyebrow fade-up fade-up-1">B2B Outbound Lead Generation</div>
+    <h1 class="fade-up fade-up-2">
+      Predictable Pipeline.<br>
+      <span>Qualified Sales Conversations.</span><br>
+      Zero Guesswork.
+    </h1>
+    <p class="hero-sub fade-up fade-up-3">
+      We build and operate a fully managed outbound system that consistently generates qualified sales conversations for B2B companies.
+    </p>
+    <p class="hero-note fade-up fade-up-4">No SDR hiring. No trial-and-error. Just a system that works.</p>
+    <div class="hero-badges fade-up fade-up-4">
+      <div class="hero-badge"><div class="dot"></div> Fully managed end-to-end</div>
+      <div class="hero-badge"><div class="dot"></div> Guaranteed minimum meetings</div>
+      <div class="hero-badge"><div class="dot"></div> Results from Week 4</div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="services" id="services">
+  <div class="container">
+    <div class="section-header">
+      <div class="eyebrow">What We Do</div>
+      <h2>What We Actually Do</h2>
+      <p>We don't sell tools or leads. We build and run your entire outbound system end-to-end.</p>
+    </div>
+    <div class="services-grid">
+      <div class="service-card">
+        <div class="service-icon">🏗️</div>
+        <h3>Outbound Infrastructure</h3>
+        <ul>
+          <li>Domains, inboxes, warmup, deliverability setup</li>
+          <li>Built to scale safely without burning reputation</li>
+        </ul>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">🎯</div>
+        <h3>Targeting & Lead Sourcing</h3>
+        <ul>
+          <li>ICP definition — industry, size, decision-makers</li>
+          <li>High-quality lead lists aligned with your offer</li>
+        </ul>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">⚡</div>
+        <h3>Campaign Strategy & Execution</h3>
+        <ul>
+          <li>Messaging angles, offers, sequences</li>
+          <li>Continuous testing and optimization</li>
+        </ul>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">📅</div>
+        <h3>Reply Handling & Booking</h3>
+        <ul>
+          <li>We manage replies and qualify prospects</li>
+          <li>Meetings booked directly into your calendar</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section class="how" id="how">
+  <div class="container">
+    <div class="section-header">
+      <div class="eyebrow">Process</div>
+      <h2>How It Works</h2>
+      <p>A structured ramp that moves from setup to consistent pipeline in 4 weeks.</p>
+    </div>
+    <div class="timeline">
+      <div class="timeline-step">
+        <div class="step-node">1</div>
+        <div class="step-week">Week 1–2</div>
+        <h3>Setup, Warmup & Alignment</h3>
+        <p>We define your ICP, set up infrastructure, and prepare all campaigns.</p>
+      </div>
+      <div class="timeline-step">
+        <div class="step-node">2</div>
+        <div class="step-week">Week 3</div>
+        <h3>Launch and Test</h3>
+        <p>Systems go live, inboxes warm, initial outreach begins.</p>
+      </div>
+      <div class="timeline-step">
+        <div class="step-node">3</div>
+        <div class="step-week">Week 3–4</div>
+        <h3>Optimization</h3>
+        <p>We refine messaging, targeting, and improve reply rates.</p>
+      </div>
+      <div class="timeline-step">
+        <div class="step-node">4</div>
+        <div class="step-week">Week 4+</div>
+        <h3>Consistent Pipeline</h3>
+        <p>A steady flow of qualified meetings arrives every month.</p>
+      </div>
+    </div>
+    <div class="timeline-note">
+      <strong>Outbound is a system, not a one-time campaign.</strong> Performance compounds over time — the longer it runs, the better your data, targeting, and close rate become.
+    </div>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section class="pricing" id="pricing">
+  <div class="container">
+    <div class="section-header">
+      <div class="eyebrow">Pricing</div>
+      <h2>Simple, Scalable Pricing</h2>
+      <p>Pricing is based on how aggressively you want to grow your pipeline.</p>
+    </div>
+    <div class="pricing-grid">
+
+      <!-- Starter -->
+      <div class="pricing-card">
+        <div class="plan-name">Starter</div>
+        <div class="plan-price">$3,000<span>/mo</span></div>
+        <div class="plan-tag">Best for companies starting outbound</div>
+        <div class="plan-divider"></div>
+        <ul class="plan-features">
+          <li><span class="check">✓</span><span>3k–5k leads/month</span></li>
+          <li><span class="check">✓</span><span><span class="highlight">8–10 qualified meetings</span>/mo</span></li>
+          <li><span class="check">✓</span><span>Minimum 8 meetings guaranteed</span></li>
+          <li><span class="check">✓</span><span>Email-only outbound system</span></li>
+          <li><span class="check">✓</span><span>Full setup + deliverability</span></li>
+          <li><span class="check">✓</span><span>Campaign creation + management</span></li>
+          <li><span class="check">✓</span><span>Basic reply handling + booking</span></li>
+        </ul>
+        <a class="plan-cta outline" href="#cta">Get Started</a>
+      </div>
+
+      <!-- Growth (FEATURED) -->
+      <div class="pricing-card featured">
+        <div class="popular-badge">Most Popular</div>
+        <div class="plan-name">Growth</div>
+        <div class="plan-price">$6,000<span>/mo</span></div>
+        <div class="plan-tag">Best for consistent pipeline growth</div>
+        <div class="plan-divider"></div>
+        <ul class="plan-features">
+          <li><span class="check">✓</span><span>5k–8k leads/month</span></li>
+          <li><span class="check">✓</span><span><span class="highlight">15–18 qualified meetings</span>/mo</span></li>
+          <li><span class="check">✓</span><span>Minimum 12–13 meetings guaranteed</span></li>
+          <li><span class="check">✓</span><span>Advanced personalization</span></li>
+          <li><span class="check">✓</span><span>A/B testing across campaigns</span></li>
+          <li><span class="check">✓</span><span>CRM hygiene + tracking</span></li>
+          <li><span class="check">✓</span><span>Full reply handling + scheduling</span></li>
+        </ul>
+        <a class="plan-cta filled" href="#cta">Get Started</a>
+      </div>
+
+      <!-- Pipeline -->
+      <div class="pricing-card">
+        <div class="plan-name">Pipeline</div>
+        <div class="plan-price">$9,500<span>/mo</span></div>
+        <div class="plan-tag">Best for scaling revenue predictably</div>
+        <div class="plan-divider"></div>
+        <ul class="plan-features">
+          <li><span class="check">✓</span><span>8k–12k leads/month</span></li>
+          <li><span class="check">✓</span><span><span class="highlight">20–22 qualified meetings</span>/mo</span></li>
+          <li><span class="check">✓</span><span>Minimum 16–18 meetings guaranteed</span></li>
+          <li><span class="check">✓</span><span>Multi-persona targeting</span></li>
+          <li><span class="check">✓</span><span>Multi-angle messaging</span></li>
+          <li><span class="check">✓</span><span>Warm lead reactivation</span></li>
+          <li><span class="check">✓</span><span>Objection handling + qualification</span></li>
+        </ul>
+        <a class="plan-cta outline" href="#cta">Get Started</a>
+      </div>
+
+      <!-- Scale -->
+      <div class="pricing-card">
+        <div class="plan-name">Scale</div>
+        <div class="plan-price">$12,500<span>+/mo</span></div>
+        <div class="plan-tag">Best for aggressive growth</div>
+        <div class="plan-divider"></div>
+        <ul class="plan-features">
+          <li><span class="check">✓</span><span>15k–30k+ leads/month</span></li>
+          <li><span class="check">✓</span><span><span class="highlight">25–30+ qualified meetings</span>/mo</span></li>
+          <li><span class="check">✓</span><span>Minimum 18–20 meetings guaranteed</span></li>
+          <li><span class="check">✓</span><span>Multi-channel (Email + LinkedIn)</span></li>
+          <li><span class="check">✓</span><span>Dedicated campaign manager</span></li>
+          <li><span class="check">✓</span><span>Advanced infrastructure scaling</span></li>
+          <li><span class="check">✓</span><span>Continuous optimization loops</span></li>
+        </ul>
+        <a class="plan-cta outline" href="#cta">Get Started</a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- TRUST / HOW WE OPERATE + DASHBOARD -->
+<section class="trust" id="operate">
+  <div class="container">
+    <div class="section-header">
+      <div class="eyebrow">How We Operate</div>
+      <h2>Here's how we operate.</h2>
+      <p>Transparency on timeline, expectations, and our guarantee.</p>
+    </div>
+    <div class="trust-grid">
+      <div class="trust-items">
+        <div class="trust-item">
+          <div class="trust-icon">⚙️</div>
+          <div>
+            <h4>Weeks 1–3 are setup and warmup</h4>
+            <p>The first 2–3 weeks are dedicated to building your infrastructure and warming inboxes. Rushing this risks deliverability. We don't skip it.</p>
+          </div>
+        </div>
+        <div class="trust-item">
+          <div class="trust-icon">📈</div>
+          <div>
+            <h4>Results begin after the system is fully live</h4>
+            <p>Meetings start landing from Week 4 onward. Month 2 and 3 are consistently stronger as targeting sharpens.</p>
+          </div>
+        </div>
+        <div class="trust-item">
+          <div class="trust-icon">🛡️</div>
+          <div>
+            <h4>Minimum guarantee — no exceptions</h4>
+            <p>If we ever fall short of the guaranteed minimum in a given month, we carry that deficit forward and fulfill it at no extra cost.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Gantt / Timeline Dashboard -->
+      <div class="dashboard-wrap">
+        <div class="dash-header">
+          <div class="dash-dot" style="background:#ff5f57"></div>
+          <div class="dash-dot" style="background:#ffbd2e"></div>
+          <div class="dash-dot" style="background:#28c840"></div>
+          <div class="dash-title">Campaign Timeline — Growth Plan Example</div>
+        </div>
+        <div class="dash-body">
+          <div class="gantt-weeks">
+            <div></div>
+            <div class="gantt-week-labels">
+              <span>Wk 1</span><span>Wk 2</span><span>Wk 3</span>
+              <span>Wk 4</span><span>Wk 5</span><span>Wk 6</span>
+              <span>Wk 7</span><span>Wk 8</span>
+            </div>
+          </div>
+          <div class="gantt">
+            <div class="gantt-row">
+              <div class="gantt-label">Infrastructure</div>
+              <div class="gantt-track">
+                <div class="gantt-bar" style="left:0%;width:25%;background:#1a56db;">Setup</div>
+              </div>
+            </div>
+            <div class="gantt-row">
+              <div class="gantt-label">Inbox Warmup</div>
+              <div class="gantt-track">
+                <div class="gantt-bar" style="left:0%;width:37.5%;background:#3b82f6;">Warmup</div>
+              </div>
+            </div>
+            <div class="gantt-row">
+              <div class="gantt-label">ICP + Leads</div>
+              <div class="gantt-track">
+                <div class="gantt-bar" style="left:0%;width:25%;background:#6366f1;">Research</div>
+              </div>
+            </div>
+            <div class="gantt-row">
+              <div class="gantt-label">Campaign Live</div>
+              <div class="gantt-track">
+                <div class="gantt-bar" style="left:25%;width:75%;background:#059669;">Active Outreach</div>
+              </div>
+            </div>
+            <div class="gantt-row">
+              <div class="gantt-label">Optimization</div>
+              <div class="gantt-track">
+                <div class="gantt-bar" style="left:37.5%;width:62.5%;background:#d97706;">Continuous</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="gantt-meetings-row">
+            <div class="meetings-label">Expected Meetings — Month 1 (Growth Plan, min 12 guaranteed)</div>
+            <div class="meeting-dots" id="meetingDots"></div>
+          </div>
+
+          <div style="margin-top:12px;font-size:11px;color:var(--ink-3);display:flex;gap:16px;flex-wrap:wrap;">
+            <span style="display:flex;align-items:center;gap:5px;"><span style="width:10px;height:10px;border-radius:50%;background:var(--accent);display:inline-block;"></span> Expected meetings</span>
+            <span style="display:flex;align-items:center;gap:5px;"><span style="width:10px;height:10px;border-radius:50%;background:var(--green);display:inline-block;"></span> Guaranteed minimum</span>
+            <span style="display:flex;align-items:center;gap:5px;"><span style="width:10px;height:10px;border-radius:50%;background:var(--surface);border:1.5px solid var(--border);display:inline-block;"></span> Remaining</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- REVENUE CALCULATOR -->
+<section class="calculator" id="calculator">
+  <div class="container">
+    <div class="section-header">
+      <div class="eyebrow">ROI Calculator</div>
+      <h2>Calculate Your Revenue</h2>
+      <p>See what a consistent pipeline of qualified meetings is worth to your business.</p>
+    </div>
+    <div class="calc-wrap">
+      <div class="calc-form">
+
+        <div class="form-group">
+          <label>Average Revenue Per Client <span>(one-time or annual)</span></label>
+          <div class="input-row">
+            <span class="prefix">$</span>
+            <input type="number" id="avgRevenue" value="25000" min="1000" step="1000">
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label>Close Rate <span id="closeRateLabel">(18% — industry standard minimum)</span></label>
+          <input type="range" id="closeRate" min="18" max="60" value="25" step="1">
+          <div class="range-val" id="closeRateVal">25%</div>
+          <div class="range-labels"><span>18% (min)</span><span>40%</span><span>60%</span></div>
+        </div>
+
+        <div class="form-group">
+          <label>Meetings Per Month <span id="meetingsPlanLabel">(select a plan below)</span></label>
+          <input type="range" id="meetingsPerMonth" min="8" max="30" value="15" step="1">
+          <div class="range-val" id="meetingsVal">15 meetings/mo</div>
+          <div class="range-labels"><span>Starter (8)</span><span>Growth (15)</span><span>Scale (30)</span></div>
+        </div>
+
+        <div style="display:flex;gap:8px;flex-wrap:wrap;">
+          <button onclick="setPlan(8,'Starter')" class="plan-quick-btn" id="btn-starter">Starter</button>
+          <button onclick="setPlan(15,'Growth')" class="plan-quick-btn active" id="btn-growth">Growth</button>
+          <button onclick="setPlan(20,'Pipeline')" class="plan-quick-btn" id="btn-pipeline">Pipeline</button>
+          <button onclick="setPlan(27,'Scale')" class="plan-quick-btn" id="btn-scale">Scale</button>
+        </div>
+
+      </div>
+
+      <div class="calc-results">
+        <div class="calc-results-header">
+          <h3>Your Projected Revenue Impact</h3>
+        </div>
+        <div class="calc-results-body">
+          <div class="result-row">
+            <span class="result-label">Meetings per month</span>
+            <span class="result-val accent" id="r-meetings">15</span>
+          </div>
+          <div class="result-row">
+            <span class="result-label">Closed clients per month</span>
+            <span class="result-val accent" id="r-closes">3.8</span>
+          </div>
+          <div class="result-row">
+            <span class="result-label">Monthly revenue generated</span>
+            <span class="result-val" id="r-monthly">$93,750</span>
+          </div>
+          <div class="result-row">
+            <span class="result-label">Annual revenue impact</span>
+            <span class="result-val big" id="r-annual">$1,125,000</span>
+          </div>
+          <div class="result-row">
+            <span class="result-label">ROI on investment</span>
+            <span class="result-val" id="r-roi" style="color:var(--green)">15.6x</span>
+          </div>
+          <div class="plan-rec" id="planRec">
+            <span class="plan-rec-icon">💡</span>
+            <div class="plan-rec-text">
+              Based on your inputs, we recommend the <strong id="recPlanName">Growth Plan</strong> — delivering 15–18 meetings/month with a guaranteed minimum of 12.
+            </div>
+          </div>
+          <div class="calc-note">
+            Based on your inputs. <strong>Actual results depend on your ICP, offer, and sales execution.</strong> These projections assume industry-standard conversion rates.
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section" id="cta">
+  <div class="container">
+    <h2>Ready to build your pipeline?</h2>
+    <p>If you're doing high-ticket B2B and need consistent, qualified conversations — this is for you.</p>
+    <a class="cta-btn-lg" href="https://calendly.com/rosis/15min" target="_blank">
+      <span>📅</span> Book a Strategy Call
+    </a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-brand">Ascendly</div>
+  <div class="footer-copy">© 2026 Ascendly Lead Generation. ascendly.one</div>
+</footer>
+
+<style>
+.plan-quick-btn {
+  padding: 7px 16px; border-radius: 8px;
+  font-size: 13px; font-weight: 600;
+  border: 1.5px solid var(--border);
+  background: var(--white); color: var(--ink-2);
+  cursor: pointer; transition: all .2s;
+}
+.plan-quick-btn:hover, .plan-quick-btn.active {
+  background: var(--accent-lt); border-color: var(--accent); color: var(--accent);
+}
+</style>
+
+<script>
+// ── Meeting dots ──────────────────────────────────────────────
+function renderMeetingDots(count, guaranteed) {
+  const container = document.getElementById('meetingDots');
+  container.innerHTML = '';
+  for (let i = 1; i <= 20; i++) {
+    const dot = document.createElement('div');
+    dot.className = 'meeting-dot';
+    dot.textContent = i;
+    if (i <= guaranteed) dot.classList.add('guaranteed');
+    else if (i <= count) dot.classList.add('active');
+    container.appendChild(dot);
+  }
+}
+renderMeetingDots(15, 12);
+
+// ── Calculator ────────────────────────────────────────────────
+const planCosts = { starter: 3000, growth: 6000, pipeline: 9500, scale: 12500 };
+const planMins  = { 8: 'starter', 15: 'growth', 20: 'pipeline', 27: 'scale' };
+let currentPlan = 'growth';
+
+function fmt(n) {
+  return '$' + Math.round(n).toLocaleString();
+}
+
+function updateCalc() {
+  const rev    = parseFloat(document.getElementById('avgRevenue').value) || 0;
+  const rate   = parseFloat(document.getElementById('closeRate').value) / 100;
+  const mtgs   = parseInt(document.getElementById('meetingsPerMonth').value);
+
+  const closes = mtgs * rate;
+  const monthly = closes * rev;
+  const annual  = monthly * 12;
+  const cost    = planCosts[currentPlan] || 6000;
+  const roi     = cost > 0 ? (annual / (cost * 12)).toFixed(1) : '0';
+
+  document.getElementById('r-meetings').textContent = mtgs;
+  document.getElementById('r-closes').textContent   = closes.toFixed(1);
+  document.getElementById('r-monthly').textContent  = fmt(monthly);
+  document.getElementById('r-annual').textContent   = fmt(annual);
+  document.getElementById('r-roi').textContent      = roi + 'x';
+  document.getElementById('closeRateVal').textContent = Math.round(rate * 100) + '%';
+  document.getElementById('meetingsVal').textContent = mtgs + ' meetings/mo';
+
+  // Recommend plan
+  const names = {starter:'Starter Plan', growth:'Growth Plan', pipeline:'Pipeline Plan', scale:'Scale Plan'};
+  const descs = {
+    starter:'delivering 8–10 meetings/month with a guaranteed minimum of 8.',
+    growth:'delivering 15–18 meetings/month with a guaranteed minimum of 12.',
+    pipeline:'delivering 20–22 meetings/month with a guaranteed minimum of 16.',
+    scale:'delivering 25–30+ meetings/month with a guaranteed minimum of 18.'
+  };
+  document.getElementById('recPlanName').textContent = names[currentPlan];
+  document.getElementById('planRec').querySelector('.plan-rec-text').innerHTML =
+    `Based on your inputs, we recommend the <strong>${names[currentPlan]}</strong> — ${descs[currentPlan]}`;
+
+  // Update gantt dots
+  const gMin = {starter:8, growth:12, pipeline:16, scale:18};
+  renderMeetingDots(mtgs, gMin[currentPlan] || 12);
+}
+
+function setPlan(meetings, name) {
+  document.getElementById('meetingsPerMonth').value = meetings;
+  const key = name.toLowerCase();
+  currentPlan = key;
+  document.querySelectorAll('.plan-quick-btn').forEach(b => b.classList.remove('active'));
+  document.getElementById('btn-' + key).classList.add('active');
+  updateCalc();
+}
+
+document.getElementById('avgRevenue').addEventListener('input', updateCalc);
+document.getElementById('closeRate').addEventListener('input', updateCalc);
+document.getElementById('meetingsPerMonth').addEventListener('input', function() {
+  const v = parseInt(this.value);
+  if (v <= 10) currentPlan = 'starter';
+  else if (v <= 18) currentPlan = 'growth';
+  else if (v <= 22) currentPlan = 'pipeline';
+  else currentPlan = 'scale';
+  document.querySelectorAll('.plan-quick-btn').forEach(b => b.classList.remove('active'));
+  document.getElementById('btn-' + currentPlan).classList.add('active');
+  updateCalc();
+});
+
+updateCalc();
+</script>
+
+</body>
+</html>
