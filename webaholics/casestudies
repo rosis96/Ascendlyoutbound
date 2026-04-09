@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CASE STUDY: MULTI-SEGMENT SCALING</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html {
+    width: 100%;
+    background: white;
+  }
+
+  body {
+    width: 210mm;
+    margin: 0 auto;
+    background: white;
+  }
+
+  /* Centered wrapper — 160mm content width centered in 210mm page */
+  .page {
+    width: 210mm;
+    min-height: 297mm;
+    background: white;
+    padding: 28px 25mm; /* 25mm left + right = 160mm content */
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+    font-size: 10px;
+    color: #111827;
+    line-height: 1.5;
+  }
+
+  /* HEADER */
+  .header { display:flex; justify-content:space-between; align-items:center; padding-bottom:14px; margin-bottom:22px; border-bottom:1px solid #e5e7eb; }
+  .brand-name { font-size:13px; font-weight:800; letter-spacing:0.12em; color:#2563eb; text-transform:uppercase; }
+  .brand-tag { font-size:7.5px; color:#9ca3af; text-transform:uppercase; letter-spacing:0.08em; margin-top:2px; }
+
+  /* HERO */
+  .badge { display:inline-block; background:#e4ecfc; color:#2563eb; font-size:7.5px; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; padding:3px 9px; border-radius:4px; margin-bottom:9px; }
+  .hero { margin-bottom:20px; }
+  h1 { font-size:24px; font-weight:800; line-height:1.15; color:#111827; margin-bottom:7px; }
+  .hero-sub { font-size:9px; color:#6b7280; line-height:1.6; margin-bottom:6px; }
+  .hero-meta { font-size:8px; color:#9ca3af; }
+
+  /* STATS */
+  .stats { display:grid; grid-template-columns:repeat(4,1fr); gap:10px; margin-bottom:18px; }
+  .stat { background:#f9fafb; border:1px solid #e5e7eb; border-radius:8px; padding:13px 11px; }
+  .sv { font-size:20px; font-weight:800; line-height:1; margin-bottom:4px; }
+  .sl { font-size:7.5px; font-weight:700; color:#374151; text-transform:uppercase; letter-spacing:0.08em; margin-bottom:2px; }
+  .ss { font-size:7.5px; color:#9ca3af; }
+
+  /* STRATEGY + TARGETING (always 2 columns, equal width) */
+  .two-col { display:grid; grid-template-columns:1fr 1fr; gap:12px; margin-bottom:14px; }
+
+  .strategy { background:#111827; border-radius:10px; padding:16px; color:white; }
+  .strat-title { font-size:10.5px; font-weight:700; color:#2563eb; margin-bottom:7px; }
+  .strat-body { font-size:8.5px; color:#d1d5db; line-height:1.6; margin-bottom:11px; }
+  .segs { display:grid; grid-template-columns:repeat(3,1fr); gap:7px; }
+  .seg { background:rgba(255,255,255,0.07); border-radius:6px; padding:9px; }
+  .sp { font-size:14px; font-weight:800; margin-bottom:2px; }
+  .st { font-size:7.5px; font-weight:700; color:white; text-transform:uppercase; letter-spacing:0.05em; margin-bottom:3px; }
+  .sd { font-size:7.5px; color:#9ca3af; line-height:1.5; }
+
+  .targeting { background:#f9fafb; border:1px solid #e5e7eb; border-radius:10px; padding:16px; }
+  .tgt-title { font-size:10.5px; font-weight:700; color:#111827; margin-bottom:8px; }
+  .ti { display:flex; align-items:center; gap:6px; margin-bottom:7px; font-size:9px; color:#374151; }
+  .td { width:5px; height:5px; border-radius:50%; flex-shrink:0; }
+  .infra-label { font-size:8px; font-weight:700; color:#374151; text-transform:uppercase; letter-spacing:0.06em; margin-top:10px; padding-top:8px; border-top:1px solid #e5e7eb; margin-bottom:5px; }
+  .ii { font-size:8px; color:#6b7280; margin-bottom:3px; padding-left:8px; }
+
+  /* EMAIL VARIATIONS — full width 2-col grid */
+  .email-grid { display:grid; gap:12px; margin-bottom:14px; }
+  .ebox { border:1px solid #e5e7eb; border-radius:8px; padding:14px; }
+  .el { font-size:7.5px; font-weight:700; text-transform:uppercase; letter-spacing:0.1em; margin-bottom:7px; }
+  .ebody { background:#f9fafb; border-radius:6px; padding:10px; }
+
+  /* QUOTE — full width */
+  .quote-block { padding:14px 18px; background:#f9fafb; border-radius:0 8px 8px 0; margin-bottom:14px; }
+  .qt { font-size:9.5px; font-style:italic; color:#374151; line-height:1.6; margin-bottom:8px; }
+  .qa { font-size:8.5px; font-weight:700; }
+  .qc { font-size:7.5px; color:#9ca3af; }
+
+  /* CTA */
+  .cta { background:#111827; border-radius:10px; padding:20px; text-align:center; margin-top:14px; }
+  .cta h2 { font-size:17px; font-weight:800; color:white; margin-bottom:5px; }
+  .cta-sub { font-size:8.5px; color:#9ca3af; line-height:1.5; margin-bottom:11px; }
+  .btn-fill { display:inline-block; background:#2563eb; color:white; font-size:8.5px; font-weight:700; padding:7px 18px; border-radius:6px; margin-right:7px; text-decoration:none; }
+  .btn-out { display:inline-block; border:1px solid #4b5563; color:#d1d5db; font-size:8.5px; font-weight:600; padding:7px 18px; border-radius:6px; text-decoration:none; }
+  .guarantees { font-size:7.5px; color:#6b7280; margin-top:9px; }
+  .guarantees span { margin:0 7px; }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <div class="header">
+    <div>
+      <div class="brand-name">ASCENDLY</div>
+      <div class="brand-tag">Lead Gen Experts</div>
+    </div>
+    <div style="background:#0f172a;color:white;padding:8px 16px;border-radius:6px;font-size:10px;font-weight:700;letter-spacing:0.06em;">WEBAHOLICS</div>
+  </div>
+
+  <div class="hero">
+    <div class="badge">CASE STUDY: MULTI-SEGMENT SCALING</div>
+    <h1><span style="color:#2563eb">130</span> Meetings. <span style="color:#2563eb">23%</span> Close Rate.</h1>
+    <p class="hero-sub">How we helped Webaholics scale three distinct service lines (E-commerce, Revenue Automation, and Web Development) simultaneously across 8 industries without sacrificing deliverability.</p>
+    <p class="hero-meta">Jan 2025 - Feb 2026 &nbsp;|&nbsp; webaholics.co</p>
+  </div>
+
+  <div class="stats"><div class="stat"><div class="sv" style="color:#2563eb">130</div><div class="sl">TOTAL MEETINGS</div><div class="ss"></div></div><div class="stat"><div class="sv" style="color:#2563eb">23%</div><div class="sl">DEAL CLOSE RATE</div><div class="ss"></div></div><div class="stat"><div class="sv" style="color:#2563eb">$5k-$10k</div><div class="sl">AVG. CUSTOMER LTV</div><div class="ss"></div></div><div class="stat"><div class="sv" style="color:#2563eb">8</div><div class="sl">INDUSTRIES</div><div class="ss">Simultaneously</div></div></div>
+
+  <div class="two-col">
+    <div class="strategy">
+      <div class="strat-title">&#9889; The Strategic Pivot</div>
+      <div class="strat-body">Webaholics faced offer fragmentation. They needed to scale high-ticket E-commerce work, B2B automation, and web dev simultaneously. We built a Modular Outreach Engine that rotated industries every 3 weeks to prevent audience fatigue.</div>
+      <div class="segs"><div class="seg"><div class="sp" style="color:#2563eb">SEG 01</div><div class="st">E-COMMERCE</div><div class="sd">Targeting optimization for lifestyle and D2C brands.</div></div><div class="seg"><div class="sp" style="color:#2563eb">SEG 02</div><div class="st">B2B AUTOMATION</div><div class="sd">Revenue-first workflows for service providers.</div></div><div class="seg"><div class="sp" style="color:#2563eb">SEG 03</div><div class="st">WEB DEV</div><div class="sd">Intent-based rotation across 8+ specialized industries.</div></div></div>
+    </div>
+    <div class="targeting">
+      <div class="tgt-title">&#128203; The Targeting</div>
+      <div class="ti"><div class="td" style="background:#2563eb"></div><span>Modular Vehicle Startups</span></div><div class="ti"><div class="td" style="background:#2563eb"></div><span>PE-Backed Revenue Platforms</span></div><div class="ti"><div class="td" style="background:#2563eb"></div><span>Outdoor and Adventure Gear</span></div>
+      <div class="infra-label">Infrastructure</div>
+      <div class="ii">• 50+ Domains and 200+ Accounts</div><div class="ii">• Manual Behavior Mimicry for Primary Tab</div><div class="ii">• Full DMARC, SPF, DKIM + IPT</div><div class="ii">• Advanced warm-up via Dedicated IPs</div>
+    </div>
+  </div>
+
+  <div class="quote-block" style="border-left:3px solid #2563eb">
+          <div class="qt">"For Webaholics, we didn't just target industries; we targeted specific design philosophies. By referencing Toro Bravo 4x4's unique Modern Utilitarian approach, we achieved instant resonance with C-level prospects."</div>
+          <div class="qa" style="color:#2563eb">Steve Paganelli</div>
+          <div class="qc">Founder, Webaholics</div>
+        </div>
+</div>
+</body>
+</html>
